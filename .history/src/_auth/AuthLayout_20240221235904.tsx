@@ -7,12 +7,6 @@ const AuthLayout = () => {
     <>
       {isAuthenticated ? (
         <Navigate to='/' />
-      ): (
-        <>
-        <section>
-          <Outlet />
-        </section>
-        </>
       )}
     </>
   )
