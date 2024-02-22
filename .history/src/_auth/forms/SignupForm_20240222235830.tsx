@@ -1,7 +1,5 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link } from 'react-router-dom';
-
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -92,10 +90,7 @@ const SignupForm = () => {
               </div>
             ): 'SignUp'}
           </Button>
-          <p className="text-small-regular text-light-2 text-center mt-2">
-            Already have an account?
-            <Link to="/sign-in" className="text-primary-500 text-small-semibold ml-1">Login</Link>
-          </p>
+          <p className=""></p>
         </form>
       </div>
     </Form>
