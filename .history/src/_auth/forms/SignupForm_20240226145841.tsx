@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from '@/components/ui/button';
 import { SignupValidation } from "@/lib/validation";
 import Loader from "@/components/shared/Loader";
-import { createUserAccount } from "@/lib/appwrite/api";
 
 const SignupForm = () => {
   const isLoading = false;
@@ -27,8 +26,6 @@ const SignupForm = () => {
     console.log(values);
     // create new user
     const newUser = await createUserAccount(values);
-
-    console.log(newUser);
   }
   return (
     <Form {...form}>
