@@ -14,7 +14,7 @@ import { useCreateUserAccount } from "@/lib/react-query/queriesAndMutations";
 const SignupForm = () => {
   const { toast } = useToast();
 
-  const { mutateAsync: createUserAccount, isLoading: isCreatingUser } = useCreateUserAccount();
+  const { mutateAsync: createUserAccount, isLoading: isCreatingUser } = useCreateUserAccountMutation();
 
   const form = useForm<z.infer<typeof SignupValidation>>({
     resolver: zodResolver(SignupValidation),

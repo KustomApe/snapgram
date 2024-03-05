@@ -22,7 +22,7 @@ export async function createUserAccount(user: INewUser) {
             username: user.username,
             imageUrl: avatarUrl,
         })
-        return newUser;
+        return newAccount;
 
     } catch (error) {
         console.log(error);
@@ -44,24 +44,9 @@ export async function saveUserToDB(user: {
             ID.unique(),
             user,
         )
-        return newUser;
+        return newUser,
     } catch (error) {
         console.log(error);
     }
 
-}
-
-export async function signInAccount(user: {
-    email: string,
-    password: string,
-}) {
-    try {
-        const session = await account.createEmailSession(
-            user.email,
-            user.password
-            );
-        return session;
-    } catch(error) {
-        console.log(error);
-    }
 }

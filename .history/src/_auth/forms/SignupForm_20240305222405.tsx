@@ -9,12 +9,14 @@ import { Input } from "@/components/ui/input";
 import { Button } from '@/components/ui/button';
 import { SignupValidation } from "@/lib/validation";
 import Loader from "@/components/shared/Loader";
-import { useCreateUserAccount } from "@/lib/react-query/queriesAndMutations";
+import { createUserAccount } from "@/lib/appwrite/api";
+import { useCreateUserAccountMutation } from "@/lib/react-query/queriesAndMutations";
 
 const SignupForm = () => {
   const { toast } = useToast();
+  const isLoading = false;
 
-  const { mutateAsync: createUserAccount, isLoading: isCreatingUser } = useCreateUserAccount();
+  const {} = useCreateUserAccountMutation()
 
   const form = useForm<z.infer<typeof SignupValidation>>({
     resolver: zodResolver(SignupValidation),
@@ -99,7 +101,7 @@ const SignupForm = () => {
             )}
           />
           <Button type="submit" className="shad-button_primary">
-            {isCreatingUser ? (
+            {isLoading ? (
               <div className="flex-center gap-2">
                 <Loader />
               </div>

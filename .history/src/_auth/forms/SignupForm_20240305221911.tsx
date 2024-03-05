@@ -9,12 +9,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from '@/components/ui/button';
 import { SignupValidation } from "@/lib/validation";
 import Loader from "@/components/shared/Loader";
-import { useCreateUserAccount } from "@/lib/react-query/queriesAndMutations";
+import { createUserAccount } from "@/lib/appwrite/api";
 
 const SignupForm = () => {
   const { toast } = useToast();
-
-  const { mutateAsync: createUserAccount, isLoading: isCreatingUser } = useCreateUserAccount();
+  const isLoading = false;
 
   const form = useForm<z.infer<typeof SignupValidation>>({
     resolver: zodResolver(SignupValidation),
@@ -36,7 +35,6 @@ const SignupForm = () => {
         title: "Signup failed. Please try again.",
       })
     }
-    // const session = await signInAccount()
   }
   return (
     <Form {...form}>
@@ -99,7 +97,7 @@ const SignupForm = () => {
             )}
           />
           <Button type="submit" className="shad-button_primary">
-            {isCreatingUser ? (
+            {isLoading ? (
               <div className="flex-center gap-2">
                 <Loader />
               </div>
